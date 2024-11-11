@@ -1,24 +1,13 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-import HookTester from "@/components/HookTester";
+import React from 'react';
+import MainLayout from '../layouts/MainLayout';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <HookTester />
-</div>
+    <MainLayout>
+      <h2 className="text-2xl text-black font-bold mb-4">Bienvenido a la Página Principal</h2>
+      <p>Esta es la página principal de tu aplicación. Aquí puedes ver el contenido general.</p>
+    </MainLayout>
   );
-}
+};
+
+export default Home;
