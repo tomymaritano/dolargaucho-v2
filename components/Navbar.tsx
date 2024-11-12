@@ -10,31 +10,22 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-gray-900 p-4 text-white shadow-md">
-      <div className="container flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center">
         {/* Desktop Menu */}
+
         <div className="space-x-8">
-          <Link href="/" className="hover:text-gray-300">
-            Inicio
-          </Link>
+          <Link href="/" className="hover:text-gray-300">Logo</Link>
+        </div>
+
+        <div className="space-x-8">
           <Link href="/Dolar" className="hover:text-gray-300">
-            Dolar
+            Cotizaciones
           </Link>
           <Link href="/contact" className="hover:text-gray-300">
             Contacto
           </Link>
         </div>
 
-        <div className="space-x-8">
-          <Link href="/" className="hover:text-gray-300">
-            Inicio
-          </Link>
-          <Link href="/Dolar" className="hover:text-gray-300">
-            Dolar
-          </Link>
-          <Link href="/contact" className="hover:text-gray-300">
-            Contacto
-          </Link>
-        </div>
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white focus:outline-none"

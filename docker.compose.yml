@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+  proxy:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: node proxyServer.mjs
+    ports:
+      - "5001:5001"
