@@ -1,4 +1,4 @@
-import { useCotizaciones } from '../services/cotizacionService';
+import { useCotizaciones } from '../../services/cotizacionService';
 
 export default function CotizacionItem() {
   const { cotizaciones, fechaActualizacion, loading, error } = useCotizaciones();

@@ -3,7 +3,7 @@ import Dolar from './components/DolarItem';
 import FeaturesBlock from './components/FeatureBlocks';
 import Hero from './components/Hero';
 import Layout from './Layout';
-import { fetchDolarData } from './services/dolarService';
+import { fetchDolarData } from '../services/dolarService';
 
 interface DolarData {
   nombre: string;
