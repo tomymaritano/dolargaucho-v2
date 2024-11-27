@@ -1,5 +1,5 @@
 // components/ListItem.js o ListItem.tsx si usas TypeScript
-import styles from '../styles/ListItem.module.css';  // Estilos específicos para ListItem
+import styles from '../styles/Home.module.css';  // Estilos específicos para ListItem
 
 interface Item {
   nombre: string;
