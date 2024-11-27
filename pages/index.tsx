@@ -5,22 +5,29 @@ import Hero from './components/Hero';
 import Layout from './Layout';
 import { fetchDolarData } from './services/dolarService';
 
+interface DolarData {
+  nombre: string;
+  compra: number;
+  venta: number;
+  fechaActualizacion: string;
+}
+
 export async function getServerSideProps() {
-  const data = await fetchDolarData();
+  const data: DolarData[] = await fetchDolarData();
   return {
-    props: { data }, // Asegúrate que 'data' siempre esté presente
+    props: { data },
   };
 }
 
 interface HomeProps {
-  data: any; // Reemplaza 'any' con el tipo correcto si lo conoces
+  data: DolarData[];
 }
 
 export default function Home({ data }: HomeProps) {
   return (
     <Layout>
       <Hero />
-      <FeaturesBlock />      
+      <FeaturesBlock />
       <Dolar data={data} />
       <CotizacionItem />
     </Layout>
