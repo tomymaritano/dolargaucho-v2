@@ -5,8 +5,6 @@ import Hero from './components/Hero';
 
 import Layout from './Layout';
 import { fetchDolarData } from '../services/dolarService';
-import InflationChart from './components/graph/InflationChart';
-import InterAnualChart from './components/graph/InteranualChart';
 
 
 interface DolarData {
@@ -32,9 +30,6 @@ export default function Home({ data }: HomeProps) {
     <Layout>
       <Hero />
       <FeaturesBlock />
-      <InflationChart />
-
-      <InterAnualChart />
       <Dolar data={data} />
       <CotizacionItem />
     </Layout>
