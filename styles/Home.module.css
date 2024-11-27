@@ -1,0 +1,100 @@
+:root {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-background: #1e1e1e;
+  --border-color: #333;
+  --title-color: #fff;
+}
+
+.container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.key {
+  color: var(--title-color);
+  font-size: 1.4rem;
+  font-weight:900;
+}
+.lastupdate {
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 2rem; /* Tamaño base del título */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.list {
+  width: 100%;
+  max-width: 800px; /* Ancho máximo para pantallas grandes */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.listItem:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Asegura que los elementos se adapten en pantallas pequeñas */
+  gap: 10px;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .listItem {
+    background-color: rgba(34, 34, 34, 0.8);
+    backdrop-filter: blur(10px); /* Aplicar desenfoque en navegadores compatibles */
+  }
+  .listItem:hover {
+    background-color: rgba(22, 21, 21, 0.8);
+  }
+}
+
+/* Diseño responsivo unificado */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem; /* Tamaño del título reducido para pantallas pequeñas */
+  }
+
+  .listItem {
+    padding: 12px; /* Ajusta el padding para dispositivos más pequeños */
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .title {
+    font-size: 2.5rem; /* Tamaño del título aumentado para pantallas grandes */
+  }
+
+  .listItem {
+    padding: 16px 24px; /* Más espacio en pantallas grandes */
+  }
+}

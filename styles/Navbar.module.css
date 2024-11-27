@@ -1,0 +1,85 @@
+:root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --link-hover-color: #f39c12;
+    --border-color: #333;
+    --card-background: #1e1e1e;
+  }
+  
+  .navbar {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    margin: 3rem;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .navLinks li {
+    margin: 0;
+  }
+  
+  .navLinks .link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navLinks .link:hover {
+    color: var(--link-hover-color);
+  }
+  
+  .toggleButton {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .navLinks {
+      flex-direction: column;
+      background-color: var(--background-color);
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 200px;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: none;
+    }
+  
+    .navLinks.open {
+      display: flex;
+    }
+  
+    .toggleButton {
+      display: block;
+    }
+  }
