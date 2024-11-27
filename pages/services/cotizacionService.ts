@@ -22,11 +22,16 @@ export const useCotizaciones = () => {
           throw new Error(`Error: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data: unknown = await response.json();
 
-        // Validación del formato de los datos
-        const isCotizacionArray = (data: any): data is Cotizacion[] => {
+        const isCotizacionArray = (data: unknown): data is Cotizacion[] => {
           return Array.isArray(data) && data.every(item =>
+            typeof item === 'object' &&
+            item !== null &&
+            'nombre' in item &&
+            'compra' in item &&
+            'venta' in item &&
+            'fechaActualizacion' in item &&
             typeof item.nombre === 'string' &&
             typeof item.compra === 'number' &&
             typeof item.venta === 'number' &&
@@ -38,7 +43,6 @@ export const useCotizaciones = () => {
           throw new Error('La respuesta de la API no tiene el formato esperado');
         }
 
-        // Formateo de la fecha
         const formatFecha = (fechaISO: string): string => {
           const fecha = new Date(fechaISO);
           const dia = String(fecha.getDate()).padStart(2, '0');
