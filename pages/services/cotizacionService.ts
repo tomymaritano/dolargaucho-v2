@@ -21,31 +21,46 @@ export const useCotizaciones = () => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
+
         const data = await response.json();
+
+        // Validación del formato de los datos
+        const isCotizacionArray = (data: any): data is Cotizacion[] => {
+          return Array.isArray(data) && data.every(item =>
+            typeof item.nombre === 'string' &&
+            typeof item.compra === 'number' &&
+            typeof item.venta === 'number' &&
+            typeof item.fechaActualizacion === 'string'
+          );
+        };
+
+        if (!isCotizacionArray(data)) {
+          throw new Error('La respuesta de la API no tiene el formato esperado');
+        }
 
         // Formateo de la fecha
         const formatFecha = (fechaISO: string): string => {
           const fecha = new Date(fechaISO);
           const dia = String(fecha.getDate()).padStart(2, '0');
           const mes = String(fecha.getMonth() + 1).padStart(2, '0');
-          const anio = String(fecha.getFullYear()).slice(-2); // Solo últimos dos dígitos
+          const anio = String(fecha.getFullYear()).slice(-2);
           const hora = String(fecha.getHours()).padStart(2, '0');
           const minutos = String(fecha.getMinutes()).padStart(2, '0');
           return `${dia}/${mes}/${anio} a las ${hora}:${minutos}`;
         };
 
-        // Captura y formateo de la fecha de actualización
         const fecha = data.length > 0 ? formatFecha(data[0].fechaActualizacion) : null;
 
-        // Filtrar "Dólar" de los resultados
-        const filteredData = data.filter(
-          (cotizacion: Cotizacion) => cotizacion.nombre !== 'Dólar'
-        );
+        const filteredData = data.filter(cotizacion => cotizacion.nombre !== 'Dólar');
 
         setCotizaciones(filteredData);
         setFechaActualizacion(fecha);
-      } catch (err: any) {
-        setError(err.message || 'Error desconocido al cargar las cotizaciones');
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || 'Error desconocido al cargar las cotizaciones');
+        } else {
+          setError('Error desconocido al cargar las cotizaciones');
+        }
       } finally {
         setLoading(false);
       }
