@@ -3,8 +3,8 @@ import React from 'react';
 
 const ContactForm: React.FC = () => {
   return (
-    <section className="bg-gray-900 text-gray-200 py-20 px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 opacity-50 z-0"></div>
+    <section className="bg-gray-950 text-gray-200 py-20 px-6 relative">
+      <div className="absolute inset-0 bg-gradient-to-br  z-0"></div>
       <div className="container mx-auto max-w-6xl relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-12">
         {/* Imagen decorativa
         <div className="flex-1 hidden lg:block relative">
@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
           <p className="text-lg text-gray-400 mb-10">
             ¿Quieres sumarte al desarrollo de esta App?
           </p>
-          <form className="bg-gray-800/70 backdrop-blur-md p-10 rounded-2xl shadow-2xl space-y-8">
+          <form className="bg-gray-900/70 backdrop-blur-md p-10 rounded-2xl shadow-2xl space-y-8">
             {/* Nombre */}
             <div className="relative">
               <input

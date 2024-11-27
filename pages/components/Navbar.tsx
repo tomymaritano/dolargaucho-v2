@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import logo from '../../public/Flow.svg'
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +16,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <div className="text-2xl font-extrabold">
           <Link href="/" className="hover:text-gray-300 transition">
-            Mi App
+            <Image src={logo} alt="Logo" width={40} height={40} />
           </Link>
         </div>
 
