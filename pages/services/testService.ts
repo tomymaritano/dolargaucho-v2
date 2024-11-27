@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next';
-import styles from '../../styles/Home.module.css';
 
 interface DataItem {
   nombre: string;

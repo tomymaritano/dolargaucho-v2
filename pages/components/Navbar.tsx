@@ -1,3 +1,4 @@
+import { Link } from 'lucide-react';
 import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
@@ -12,32 +13,32 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-extrabold">
-          <a href="/" className="hover:text-gray-300 transition">
+          <Link to="/" className="hover:text-gray-300 transition">
             Mi App
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium">
           <li>
-            <a href="/home" className="hover:text-gray-300 transition">
+            <Link to="/home" className="hover:text-gray-300 transition">
               Inicio
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" className="hover:text-gray-300 transition">
+            <Link to="/about" className="hover:text-gray-300 transition">
               Sobre Nosotros
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/services" className="hover:text-gray-300 transition">
+            <Link to="/services" className="hover:text-gray-300 transition">
               Servicios
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/contact" className="hover:text-gray-300 transition">
+            <Link href="/contact" className="hover:text-gray-300 transition">
               Contacto
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -75,36 +76,36 @@ const Navbar: React.FC = () => {
           </button>
           <ul className="text-center text-lg font-medium">
             <li>
-              <a
-                href="/home"
+              <Link
+                to="/home"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Inicio
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Sobre Nosotros
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Servicios
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Contacto
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
