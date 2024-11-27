@@ -1,4 +1,4 @@
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
@@ -9,11 +9,11 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900/70 backdrop-blur-lg text-white  z-50">
+    <nav className="fixed top-0 left-0 w-full bg-gray-900/70 backdrop-blur-lg text-white z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-extrabold">
-          <Link to="/" className="hover:text-gray-300 transition">
+          <Link href="/" className="hover:text-gray-300 transition">
             Mi App
           </Link>
         </div>
@@ -21,17 +21,17 @@ const Navbar: React.FC = () => {
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium">
           <li>
-            <Link to="/home" className="hover:text-gray-300 transition">
+            <Link href="/home" className="hover:text-gray-300 transition">
               Inicio
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:text-gray-300 transition">
+            <Link href="/about" className="hover:text-gray-300 transition">
               Sobre Nosotros
             </Link>
           </li>
           <li>
-            <Link to="/services" className="hover:text-gray-300 transition">
+            <Link href="/services" className="hover:text-gray-300 transition">
               Servicios
             </Link>
           </li>
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           <ul className="text-center text-lg font-medium">
             <li>
               <Link
-                to="/home"
+                href="/home"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Inicio
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                href="/about"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Sobre Nosotros
@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/services"
+                href="/services"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Servicios
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                href="/contact"
                 className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
               >
                 Contacto
