@@ -3,19 +3,19 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section className="relative bg-gray-900 text-gray-200 min-h-screen flex flex-col justify-center items-center px-6 text-center overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500 rounded-full opacity-10 blur-2xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-pink-500 rounded-full opacity-10 blur-2xl animate-pulse"></div>
+      {/* Fondo Gradiente y Animado */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-gray-800 via-gray-900 to-gray-950">
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-blue-400 opacity-10 blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-blue-400 opacity-10 blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-gray-500 opacity-10 blur-xl"></div>
       </div>
 
-      {/* Hero Content */}
-      <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
-        Bienvenido a <span className="text-blue-400">Dolar Gaucho</span>
+      {/* Contenido del Hero */}
+      <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-gray-100">
+        La Herramienta Financiera para <span className="text-blue-500">Decisiones Inteligentes</span>
       </h1>
-      <p className="text-lg md:text-2xl text-gray-400 max-w-2xl mb-8">
-        Consulta cotizaciones, estadísticas y todo lo que necesitas en una experiencia optimizada y moderna.
+      <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-8">
+        Accede a cotizaciones actualizadas, análisis de tendencias y herramientas clave para gestionar tus finanzas personales y empresariales con confianza.
       </p>
       <div className="flex flex-col md:flex-row gap-4">
         <a
@@ -30,13 +30,6 @@ const Hero: React.FC = () => {
         >
           Contáctanos
         </a>
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-10 w-full flex justify-center space-x-4 opacity-50">
-        <span className="w-4 h-4 bg-blue-500 rounded-full animate-bounce"></span>
-        <span className="w-4 h-4 bg-purple-500 rounded-full animate-bounce delay-100"></span>
-        <span className="w-4 h-4 bg-pink-500 rounded-full animate-bounce delay-200"></span>
       </div>
     </section>
   );
