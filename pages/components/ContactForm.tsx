@@ -3,7 +3,7 @@ import React from 'react';
 
 const ContactForm: React.FC = () => {
   return (
-    <section className="bg-gray-950 text-gray-200 py-20 px-6 relative">
+    <section className="bg-gray-950 text-gray-200 py-20 px-6 relative"  id='contact'>
       <div className="absolute inset-0 bg-gradient-to-br  z-0"></div>
       <div className="container mx-auto max-w-6xl relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-12">
         {/* Imagen decorativa
