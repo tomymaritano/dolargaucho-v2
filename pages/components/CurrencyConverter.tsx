@@ -142,9 +142,7 @@ const CurrencyConverter = () => {
           <div className="flex justify-between items-center bg-gray-800 p-4 rounded-lg text-lg font-semibold">
             <div className="flex items-center gap-2">
               <span>Resultado: {result}</span>
-              <span role="img" aria-label="money-face">
-                🤑
-              </span>
+              🤑
             </div>
             <button onClick={handleCopy} className="text-blue-500 hover:text-blue-400 transition">
               <FaCopy />
@@ -152,7 +150,7 @@ const CurrencyConverter = () => {
           </div>
           <button
             onClick={handleShare}
-            className="w-full mt-4 flex items-center justify-center gap-2 bg-violet-600 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all"
+            className="w-full mt-4 flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all"
           >
             <FaShareAlt />
             Compartir
