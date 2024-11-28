@@ -17,10 +17,10 @@ const CurrencyConverter = () => {
     const fetchDolarData = async () => {
       try {
         const response = await fetch('https://dolarapi.com/v1/dolares');
-        const data = await response.json();
+        const data: Array<{ nombre: string; venta: number }> = await response.json();
 
         // Mapear datos para simplificar al tipo de cambio único
-        const simplifiedData = data.map((item: any) => ({
+        const simplifiedData = data.map((item) => ({
           nombre: item.nombre,
           valor: item.venta, // Usamos el precio de venta como el tipo de cambio único
         }));
