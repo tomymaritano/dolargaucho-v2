@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaShareAlt, FaStar } from 'react-icons/fa';
+import { FaShareAlt, FaStar, FaCopy } from 'react-icons/fa';
 
 interface DataItem {
   nombre: string;
@@ -56,8 +56,34 @@ export default function Dolar({ data }: DolarProps) {
         .then(() => console.log('Compartido con éxito'))
         .catch((err) => console.error('Error al compartir:', err));
     } else {
-      alert('Tu navegador no soporta la funcionalidad de compartir.');
+      // Alternativa para navegadores no compatibles
+      const fallbackText = `${shareData.title}\n${shareData.text}\n${shareData.url}`;
+      navigator.clipboard
+        .writeText(fallbackText)
+        .then(() => {
+          alert('El contenido ha sido copiado al portapapeles.');
+        })
+        .catch(() => {
+          alert('No se pudo copiar al portapapeles. Intenta manualmente.');
+        });
     }
+  };
+
+  const handleCopy = (item: DataItem) => {
+    const textToCopy = `Cotización de ${item.nombre}\nCompra: $${item.compra.toFixed(
+      2
+    )}\nVenta: $${item.venta.toFixed(2)}\nÚltima actualización: ${
+      item.fechaActualizacion
+    }`;
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        alert('Texto copiado al portapapeles.');
+      })
+      .catch(() => {
+        alert('No se pudo copiar el texto. Intenta nuevamente.');
+      });
   };
 
   return (
@@ -96,20 +122,29 @@ export default function Dolar({ data }: DolarProps) {
                 Venta: <span>${item.venta.toFixed(2)}</span>
               </div>
             </div>
-            
+
             {/* Última Actualización */}
             <span className="block text-right text-sm text-gray-400 mt-4">
               Última actualización: {item.fechaActualizacion}
             </span>
 
-            {/* Botón Compartir */}
-            <button
-              onClick={() => handleShare(item)}
-              className="mt-4 w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
-            >
-              <FaShareAlt />
-              Compartir
-            </button>
+            {/* Botones Compartir y Copiar */}
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={() => handleShare(item)}
+                className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+              >
+                <FaShareAlt />
+                Compartir
+              </button>
+              <button
+                onClick={() => handleCopy(item)}
+                className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+              >
+                <FaCopy />
+                Copiar
+              </button>
+            </div>
           </div>
         ))}
       </div>
