@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
 
       {/* Contenido del Hero */}
       <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-gray-100">
-        La Herramienta Financiera para <span className="text-blue-500">Decisiones Inteligentes</span>
+        La Herramienta Financiera para <span className="text-blue-500">Decisiones Inteligentes</span> 🚀
       </h1>
       <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-8">
         Accede a cotizaciones actualizadas, análisis de tendencias y herramientas clave para gestionar tus finanzas personales y empresariales con confianza.

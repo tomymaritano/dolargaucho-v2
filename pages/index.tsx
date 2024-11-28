@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 
 import Layout from './Layout';
 import { fetchDolarData } from '../services/dolarService';
+import CurrencyConverter from './components/CurrencyConverter';
 
 
 interface DolarData {
@@ -31,6 +32,7 @@ export default function Home({ data }: HomeProps) {
       <Hero />
       <FeaturesBlock />
       <Dolar data={data} />
+      <CurrencyConverter />
       <CotizacionItem />
     </Layout>
   );
