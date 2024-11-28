@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaShareAlt, FaStar } from 'react-icons/fa';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 interface DataItem {
   nombre: string;
@@ -97,14 +96,7 @@ export default function Dolar({ data }: DolarProps) {
                 Venta: <span>${item.venta.toFixed(2)}</span>
               </div>
             </div>
-
-            {/* Tendencia */}
-            <div className="mt-4">
-              <Sparklines data={item.tendencia} limit={10}>
-                <SparklinesLine color="blue" />
-              </Sparklines>
-            </div>
-
+            
             {/* Última Actualización */}
             <span className="block text-right text-sm text-gray-400 mt-4">
               Última actualización: {item.fechaActualizacion}
