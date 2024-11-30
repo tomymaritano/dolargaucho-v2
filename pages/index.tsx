@@ -3,7 +3,6 @@ import Dolar from './components/DolarItem';
 import Hero from './components/Hero';
 import Layout from './Layout';
 import { fetchDolarData } from '../services/dolarService';
-import MercadoDinero from './components/ MercadoDinero';
 import RiesgoPais from './components/RiesgoPais';
 import Rendimientos from './components/Rendimientos';
 
