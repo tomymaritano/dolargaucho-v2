@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import logo from '../../public/Flow.svg'
+import logo from '../../public/Flow.svg';
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,8 +10,12 @@ const Navbar: React.FC = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900/70 backdrop-blur-lg text-white z-50">
+    <nav className="fixed top-0 left-0 w-full bg-gray-900/70 backdrop-blur-lg text-white z-50 shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-extrabold">
@@ -68,50 +72,42 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-gray-800/90 backdrop-blur-lg absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center space-y-6">
-          <button
-            onClick={toggleMenu}
-            className="absolute top-6 right-6 text-white text-2xl focus:outline-none"
-          >
-            &times;
-          </button>
-          <ul className="text-center text-lg font-medium">
-            <li>
-              <Link
-                href="/home"
-                className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
-              >
-                Inicio
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
-              >
-                Sobre Nosotros
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
-              >
-                Servicios
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="block py-2 px-4 rounded-lg hover:bg-gray-700 transition"
-              >
-                Contacto
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black backdrop-blur-md text-white transition-transform transform ${
+          menuOpen ? 'translate-x-0' : '-translate-x-full'
+        } z-40`}
+      >
+        {/* Botón de cierre */}
+        <button
+          onClick={closeMenu}
+          className="absolute top-6 right-6 text-white text-3xl focus:outline-none hover:text-red-500 transition"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <ul className="flex flex-col items-center justify-center h-full space-y-8 text-2xl font-semibold">
+          <li>
+            <Link href="/home" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Sobre Nosotros
+            </Link>
+          </li>
+          <li>
+            <Link href="/services" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Servicios
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Contacto
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

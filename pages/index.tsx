@@ -1,11 +1,11 @@
-import CotizacionItem from './components/CotizacionItem';
-import Dolar from './components/DolarItem';
-import FeaturesBlock from './components/FeatureBlocks';
-import Hero from './components/Hero';
 
+import Dolar from './components/DolarItem';
+import Hero from './components/Hero';
 import Layout from './Layout';
 import { fetchDolarData } from '../services/dolarService';
-import AboutMe from './components/AboutMe';
+import MercadoDinero from './components/ MercadoDinero';
+import RiesgoPais from './components/RiesgoPais';
+import Rendimientos from './components/Rendimientos';
 
 
 interface DolarData {
@@ -30,10 +30,9 @@ export default function Home({ data }: HomeProps) {
   return (
     <Layout>
       <Hero />
-      <AboutMe />
-      <FeaturesBlock />
+      <RiesgoPais />
       <Dolar data={data} />
-      <CotizacionItem />
+      <Rendimientos />
     </Layout>
   );
 }

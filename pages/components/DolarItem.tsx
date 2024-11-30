@@ -27,7 +27,6 @@ export async function getServerSideProps() {
     props: { data: modifiedData },
   };
 }
-
 export default function Dolar({ data }: DolarProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
 
@@ -53,18 +52,17 @@ export default function Dolar({ data }: DolarProps) {
     if (navigator.share) {
       navigator
         .share(shareData)
-        .then(() => console.log('Compartido con éxito'))
-        .catch((err) => console.error('Error al compartir:', err));
+        .then(() => console.log("Compartido con éxito"))
+        .catch((err) => console.error("Error al compartir:", err));
     } else {
-      // Alternativa para navegadores no compatibles
       const fallbackText = `${shareData.title}\n${shareData.text}\n${shareData.url}`;
       navigator.clipboard
         .writeText(fallbackText)
         .then(() => {
-          alert('El contenido ha sido copiado al portapapeles.');
+          alert("El contenido ha sido copiado al portapapeles.");
         })
         .catch(() => {
-          alert('No se pudo copiar al portapapeles. Intenta manualmente.');
+          alert("No se pudo copiar al portapapeles. Intenta manualmente.");
         });
     }
   };
@@ -79,23 +77,32 @@ export default function Dolar({ data }: DolarProps) {
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        alert('Texto copiado al portapapeles.');
+        alert("Texto copiado al portapapeles.");
       })
       .catch(() => {
-        alert('No se pudo copiar el texto. Intenta nuevamente.');
+        alert("No se pudo copiar el texto. Intenta nuevamente.");
       });
   };
 
   return (
     <div className="bg-gray-950 text-gray-200 py-16 px-6">
-      <h1 className="text-4xl font-extrabold text-center mb-12 text-white tracking-wide">
-        Cotización del Dólar
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {/* Título y Bajada */}
+      <div className="text-center max-w-4xl mx-auto mb-12">
+        <h1 className="text-4xl font-extrabold text-white mb-4">
+          Cotización del Dólar
+        </h1>
+        <p className="text-lg text-gray-400">
+          Accede a las últimas cotizaciones del dólar en diferentes tipos de cambio. 
+          Mantente informado y toma decisiones financieras acertadas.
+        </p>
+      </div>
+
+      {/* Tarjetas de Cotización */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
         {data.map((item, index) => (
           <div
             key={index}
-            className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300"
+            className="relative bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300"
           >
             {/* Favoritos */}
             <button
@@ -111,7 +118,9 @@ export default function Dolar({ data }: DolarProps) {
             </button>
 
             {/* Nombre */}
-            <span className="text-2xl font-bold text-white block mb-4">{item.nombre}</span>
+            <span className="text-2xl font-bold text-white block mb-4">
+              {item.nombre}
+            </span>
 
             {/* Compra y Venta */}
             <div className="flex justify-between items-center text-lg">
@@ -129,17 +138,17 @@ export default function Dolar({ data }: DolarProps) {
             </span>
 
             {/* Botones Compartir y Copiar */}
-            <div className="flex justify-between mt-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button
                 onClick={() => handleShare(item)}
-                className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+                className="flex-1 flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
               >
                 <FaShareAlt />
                 Compartir
               </button>
               <button
                 onClick={() => handleCopy(item)}
-                className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+                className="flex-1 flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
               >
                 <FaCopy />
                 Copiar

@@ -84,3 +84,31 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 15s linear infinite;
+  will-change: transform;
+}
+
+.bg-gray-800 {
+  background-color: #1a202c; /* Fondo oscuro */
+}
+
+.flex {
+  display: flex;
+}
+
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 2rem; /* Espaciado entre logos */
+}
