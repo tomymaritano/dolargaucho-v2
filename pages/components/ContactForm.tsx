@@ -1,6 +1,6 @@
 const ContactForm: React.FC = () => {
   return (
-    <section className="bg-gray-900 py-20 px-4 sm:px-6 relative" id="contact">
+    <section className="bg-gray-950 py-20 px-4 sm:px-6 relative" id="contact">
       <div className="absolute inset-0  z-0"></div>
       <div className="container mx-auto max-w-4xl relative z-10 flex flex-col items-center gap-12">
         {/* Título y Descripción */}
