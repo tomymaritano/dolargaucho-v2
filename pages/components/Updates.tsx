@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCheckCircle, FaClock } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
 
 interface Update {
   title: string;
