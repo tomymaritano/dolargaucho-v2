@@ -16,7 +16,7 @@ const Marquesina: React.FC<MarquesinaProps> = ({ logos = [] }) => {
         {logos.map((logo, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-24 h-24 bg-gray-800 rounded-full p-2"
+            className="flex-shrink-0 w-32 h-32 rounded-full p-2"
           >
             <img
               src={logo.src}

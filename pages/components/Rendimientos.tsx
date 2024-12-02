@@ -72,7 +72,7 @@ const Rendimientos: React.FC = () => {
     { entidad: "Belo", src: "/belo.png" },
     { entidad: "Letsbit", src: "/letsbit.png" },
     { entidad: "Ripio", src: "/ripio.png" },
-    { entidad: "Fiwind", src: "/fiwind.png" },
+    { entidad: "Fiwind", src: "/fiwind.svg" },
   ];
 
   return (
