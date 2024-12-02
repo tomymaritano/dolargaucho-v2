@@ -25,6 +25,11 @@ const Rendimientos: React.FC = () => {
         return response.json();
       })
       .then((data) => {
+        // Validación para evitar errores si `data` está vacío o mal formateado
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error("No hay datos disponibles o formato incorrecto.");
+        }
+
         // Mover "Lemoncash" al inicio de la lista si existe
         const orderedData = [...data].sort((a, b) => {
           if (a.entidad.toLowerCase() === "lemoncash") return -1;
