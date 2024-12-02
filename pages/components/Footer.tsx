@@ -2,44 +2,52 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-8 px-6">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Logo e Información */}
-        <div className="text-center md:text-left">
-          <h3 className="text-xl text-gray-200 font-bold mb-2">Mi App</h3>
-          <p className="text-sm">
-            La mejor plataforma para tus cotizaciones y estadísticas. <br />
-            Hecho con ❤️ para ti.
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-400 py-8 px-6">
+      <div className="container mx-auto text-center flex flex-col gap-6">
+        {/* Branding */}
+        <div>
+          <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text">
+            Dólar Gaucho
+          </h3>
+          <p className="text-sm text-gray-400 mt-2">
+            La plataforma Web3 para cotizaciones y estadísticas financieras confiables. Simplificamos el acceso al dólar en Argentina.
           </p>
         </div>
 
         {/* Enlaces */}
-        <ul className="flex flex-wrap justify-center md:justify-start gap-6">
+        <ul className="flex justify-center gap-8 text-sm">
           <li>
-            <a href="/home" className="hover:text-gray-200 transition">
+            <a href="/home" className="hover:text-blue-400 transition">
               Inicio
             </a>
           </li>
           <li>
-            <a href="/about" className="hover:text-gray-200 transition">
+            <a href="/about" className="hover:text-blue-400 transition">
               Sobre Nosotros
             </a>
           </li>
           <li>
-            <a href="/services" className="hover:text-gray-200 transition">
+            <a href="/services" className="hover:text-blue-400 transition">
               Servicios
             </a>
           </li>
           <li>
-            <a href="/contact" className="hover:text-gray-200 transition">
+            <a href="/contact" className="hover:text-blue-400 transition">
               Contacto
             </a>
           </li>
         </ul>
 
-        {/* Derechos reservados */}
-        <div className="text-center text-sm mt-4 md:mt-0">
-          <p>© 2024 Mi App. Todos los derechos reservados.</p>
+        {/* Derechos Reservados */}
+        <p className="text-xs text-gray-500">
+          © 2024 Dólar Gaucho. Construido con tecnología Web3 para un futuro financiero descentralizado.
+        </p>
+
+        {/* Slogan Web3 */}
+        <div className="text-center text-sm mt-4">
+          <p className="text-transparent bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text font-semibold">
+            Potencia tus finanzas con la descentralización. 🚀
+          </p>
         </div>
       </div>
     </footer>

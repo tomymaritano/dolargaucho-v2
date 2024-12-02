@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import chart from '../../public/chart.jpg';
+import React from "react";
+import Image from "next/image";
+import chart from "../../public/chart.jpg";
 
 const Historia: React.FC = () => {
   return (
@@ -25,23 +25,28 @@ const Historia: React.FC = () => {
 
         {/* Contenido de Texto */}
         <div className="flex-1 text-center md:text-left">
-          <h2 className="text-5xl font-extrabold text-blue-400 mb-6 tracking-wide">
-            Nuestra Historia
+          <h2 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-6 tracking-wide">
+            Nuestra Historia en el Mundo Web3
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-4">
-            <span className="text-blue-500 font-semibold">Dólar Gaucho</span> nació en respuesta a la necesidad de una herramienta confiable y moderna para monitorear el tipo de cambio en Argentina. 
-            Nuestro objetivo siempre ha sido simplificar el acceso a la información financiera, brindando una experiencia amigable para todos los usuarios.
+            <span className="text-blue-500 font-semibold">Dólar Gaucho</span> no
+            es solo una plataforma, es una puerta hacia un futuro financiero
+            más conectado. Nacimos para resolver la necesidad de una herramienta
+            confiable en un ecosistema que evoluciona hacia{" "}
+            <span className="text-purple-500 font-semibold">Web3</span>.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            Hoy en día, somos más que una aplicación; somos un recurso clave para miles de argentinos que buscan tomar decisiones informadas 
-            en un entorno económico cambiante.
+            Nuestra misión es unir la tecnología blockchain y el análisis
+            financiero para empoderar a nuestros usuarios con datos claros,
+            herramientas innovadoras y un ecosistema que respalde decisiones
+            inteligentes en tiempo real.
           </p>
           <div className="mt-8">
             <a
               href="#"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
             >
-              Leer Más
+              Descubre Más
             </a>
           </div>
         </div>

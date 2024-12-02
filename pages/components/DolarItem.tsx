@@ -27,6 +27,7 @@ export async function getServerSideProps() {
     props: { data: modifiedData },
   };
 }
+
 export default function Dolar({ data }: DolarProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
 
@@ -85,24 +86,23 @@ export default function Dolar({ data }: DolarProps) {
   };
 
   return (
-    <div id='cotizacion' className="bg-gray-950 text-gray-200 py-16 px-6">
+    <div id="cotizacion" className="bg-gray-950 text-gray-200 py-16 px-6">
       {/* Título y Bajada */}
       <div className="text-center max-w-4xl mx-auto mb-12">
-        <h1 className="text-4xl font-extrabold text-white mb-4">
-          Cotización del Dólar
+        <h1 className="text-5xl font-extrabold text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text">
+          Cotización del Dólar en Argentina
         </h1>
-        <p className="text-lg text-gray-400">
-          Accede a las últimas cotizaciones del dólar en diferentes tipos de cambio. 
-          Mantente informado y toma decisiones financieras acertadas.
+        <p className="text-lg text-gray-400 mt-4">
+          Monitorea los tipos de cambio más recientes y obtén insights financieros con tecnología avanzada.
         </p>
       </div>
 
       {/* Tarjetas de Cotización */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {data.map((item, index) => (
           <div
             key={index}
-            className="relative bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300"
+            className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300"
           >
             {/* Favoritos */}
             <button
@@ -141,14 +141,14 @@ export default function Dolar({ data }: DolarProps) {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button
                 onClick={() => handleShare(item)}
-                className="flex-1 flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+                className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-transform transform hover:scale-110"
               >
                 <FaShareAlt />
                 Compartir
               </button>
               <button
                 onClick={() => handleCopy(item)}
-                className="flex-1 flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105"
+                className="flex-1 flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-transform transform hover:scale-110"
               >
                 <FaCopy />
                 Copiar

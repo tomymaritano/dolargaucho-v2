@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Marquesina from "./Marquesina";
+import { FaShareAlt, FaCopy } from "react-icons/fa";
 
 interface Rendimiento {
   entidad: string;
@@ -45,10 +46,42 @@ const Rendimientos: React.FC = () => {
       });
   }, []);
 
+  const handleCopy = (rend: { moneda: string; apy: number; fecha: string }) => {
+    const textToCopy = `Rendimiento de ${selectedEntidad}\nMoneda: ${rend.moneda}\nAPY: ${rend.apy.toFixed(
+      2
+    )}%\nFecha: ${rend.fecha}\nConsulta más en: https://dolargaucho.com.ar/#rendimientos`;
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => alert("Texto copiado al portapapeles."))
+      .catch(() => alert("Error al copiar el texto."));
+  };
+
+  const handleShare = (rend: { moneda: string; apy: number; fecha: string }) => {
+    const shareData = {
+      title: `Rendimiento de ${selectedEntidad}`,
+      text: `Moneda: ${rend.moneda}\nAPY: ${rend.apy.toFixed(
+        2
+      )}%\nFecha: ${rend.fecha}\nConsulta más en: https://dolargaucho.com.ar/#rendimientos`,
+      url: "https://dolargaucho.com.ar/#rendimientos",
+    };
+
+    if (navigator.share) {
+      navigator
+        .share(shareData)
+        .then(() => console.log("Compartido con éxito"))
+        .catch(() => alert("Error al compartir."));
+    } else {
+      alert(
+        "Tu navegador no soporta compartir. Intenta copiar el texto manualmente."
+      );
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
-        <p className="text-2xl font-semibold">Cargando rendimientos...</p>
+        <p className="text-2xl font-semibold animate-pulse">Cargando rendimientos...</p>
       </div>
     );
   }
@@ -61,10 +94,6 @@ const Rendimientos: React.FC = () => {
     );
   }
 
-  const handleEntidadChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedEntidad(event.target.value);
-  };
-
   const filteredData = data?.find((item) => item.entidad === selectedEntidad);
 
   const logos = [
@@ -76,27 +105,26 @@ const Rendimientos: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-900 text-gray-200 py-10 px-6">
+    <div className="bg-gray-950 text-gray-200 py-10 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl text-center">
-        <h2 className="text-4xl font-extrabold text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
           Rendimientos Financieros
         </h2>
-        <p className="text-lg text-gray-400 mb-8">
-          Consulta los rendimientos más recientes y toma decisiones informadas
-          sobre tus finanzas.
+        <p className="text-base sm:text-lg text-gray-400 mb-8">
+          Explora los rendimientos más recientes y toma decisiones inteligentes con estilo Web3.
         </p>
         <div className="mb-6 text-left">
           <label
             htmlFor="entidad-select"
-            className="block text-lg font-medium text-gray-400 mb-2"
+            className="block text-sm sm:text-lg font-medium text-gray-400 mb-2"
           >
             Selecciona una entidad:
           </label>
           <select
             id="entidad-select"
             value={selectedEntidad || ""}
-            onChange={handleEntidadChange}
-            className="w-full bg-gray-800 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={(e) => setSelectedEntidad(e.target.value)}
+            className="w-full bg-gray-800 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           >
             {data?.map((item, index) => (
               <option key={index} value={item.entidad}>
@@ -105,18 +133,34 @@ const Rendimientos: React.FC = () => {
             ))}
           </select>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-10">
           {filteredData?.rendimientos.map((rend, index) => (
             <div
               key={index}
-              className="flex flex-col bg-gray-800 rounded-lg shadow-lg p-6"
+              className="bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-xl p-4 sm:p-6 hover:scale-105 transform transition"
             >
-              <div className="mb-4">
+              <div className="text-center mb-4">
                 <p className="text-lg font-semibold text-white">{rend.moneda}</p>
-                <p className="text-sm text-gray-400">Fecha: {rend.fecha}</p>
+                <p className="text-xs text-gray-400">Fecha: {rend.fecha}</p>
               </div>
-              <div className="text-2xl font-bold text-green-400">
+              <div className="text-center text-xl font-bold text-green-400 mb-4">
                 {rend.apy.toFixed(2)}%
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => handleShare(rend)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-3 rounded-lg shadow-md flex items-center gap-2 justify-center"
+                >
+                  <FaShareAlt />
+                  Compartir
+                </button>
+                <button
+                  onClick={() => handleCopy(rend)}
+                  className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-3 rounded-lg shadow-md flex items-center gap-2 justify-center"
+                >
+                  <FaCopy />
+                  Copiar
+                </button>
               </div>
             </div>
           ))}

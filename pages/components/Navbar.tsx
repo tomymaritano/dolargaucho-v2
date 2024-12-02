@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900/70 backdrop-blur-lg text-white z-50 shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-gray-950/70 backdrop-blur-lg text-white z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-extrabold">
