@@ -25,12 +25,10 @@ const Rendimientos: React.FC = () => {
         return response.json();
       })
       .then((data) => {
-        // Validación para evitar errores si `data` está vacío o mal formateado
         if (!Array.isArray(data) || data.length === 0) {
-          throw new Error("No hay datos disponibles o formato incorrecto.");
+          throw new Error("No hay datos disponibles.");
         }
 
-        // Mover "Lemoncash" al inicio de la lista si existe
         const orderedData = [...data].sort((a, b) => {
           if (a.entidad.toLowerCase() === "lemoncash") return -1;
           if (b.entidad.toLowerCase() === "lemoncash") return 1;
@@ -38,7 +36,7 @@ const Rendimientos: React.FC = () => {
         });
 
         setData(orderedData);
-        setSelectedEntidad(orderedData[0]?.entidad || null); // Seleccionar Lemoncash por defecto
+        setSelectedEntidad(orderedData[0]?.entidad || null);
         setLoading(false);
       })
       .catch((error) => {
@@ -80,7 +78,6 @@ const Rendimientos: React.FC = () => {
   return (
     <div className="bg-gray-900 text-gray-200 py-10 px-6">
       <div className="container mx-auto max-w-6xl text-center">
-        {/* Título centrado */}
         <h2 className="text-4xl font-extrabold text-white mb-4">
           Rendimientos Financieros
         </h2>
@@ -88,8 +85,6 @@ const Rendimientos: React.FC = () => {
           Consulta los rendimientos más recientes y toma decisiones informadas
           sobre tus finanzas.
         </p>
-
-        {/* Selector de Entidad */}
         <div className="mb-6 text-left">
           <label
             htmlFor="entidad-select"
@@ -110,8 +105,6 @@ const Rendimientos: React.FC = () => {
             ))}
           </select>
         </div>
-
-        {/* Rendimientos de la Entidad Seleccionada */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {filteredData?.rendimientos.map((rend, index) => (
             <div
@@ -128,8 +121,6 @@ const Rendimientos: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Marquesina */}
         <Marquesina logos={logos} />
       </div>
     </div>
