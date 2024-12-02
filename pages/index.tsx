@@ -5,6 +5,7 @@ import Layout from './Layout';
 import { fetchDolarData } from '../services/dolarService';
 import RiesgoPais from './components/RiesgoPais';
 import Rendimientos from './components/Rendimientos';
+import GraficoInflacion from './components/graph/graficoinflacion';
 
 
 interface DolarData {
@@ -31,6 +32,7 @@ export default function Home({ data }: HomeProps) {
       <Hero />
       <RiesgoPais />
       <Dolar data={data} />
+      <GraficoInflacion />
       <Rendimientos />
     </Layout>
   );
