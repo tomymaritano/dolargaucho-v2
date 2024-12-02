@@ -1,6 +1,6 @@
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-gray-900 text-gray-200 min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 text-center overflow-hidden">
+    <section id="#inicio" className="relative bg-gray-900 text-gray-200 min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 text-center overflow-hidden">
       {/* Fondo con gradiente animado */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500 to-blue-700 animate-gradient-x">
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay para mejorar legibilidad */}

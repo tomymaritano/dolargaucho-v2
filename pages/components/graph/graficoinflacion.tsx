@@ -2,7 +2,7 @@ import React from "react";
 
 const GraficoInflacion: React.FC = () => {
   return (
-    <div className="bg-gray-900 text-gray-200 py-10 px-6">
+    <div id="inflacion" className="bg-gray-900 text-gray-200 py-10 px-6">
       {/* Contenedor del título y bajada */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-extrabold text-white mb-4">

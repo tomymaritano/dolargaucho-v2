@@ -85,7 +85,7 @@ export default function Dolar({ data }: DolarProps) {
   };
 
   return (
-    <div className="bg-gray-950 text-gray-200 py-16 px-6">
+    <div id='cotizacion' className="bg-gray-950 text-gray-200 py-16 px-6">
       {/* Título y Bajada */}
       <div className="text-center max-w-4xl mx-auto mb-12">
         <h1 className="text-4xl font-extrabold text-white mb-4">

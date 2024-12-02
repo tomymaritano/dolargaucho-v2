@@ -27,22 +27,22 @@ const Navbar: React.FC = () => {
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium">
           <li>
-            <Link href="/home" className="hover:text-gray-300 transition">
+            <Link href="#inicio" className="hover:text-gray-300 transition">
               Inicio
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-gray-300 transition">
-              Sobre Nosotros
+            <Link href="#cotizacion" className="hover:text-gray-300 transition">
+              Cotizacion
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:text-gray-300 transition">
-              Servicios
+            <Link href="#inflacion" className="hover:text-gray-300 transition">
+              Inflacion
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-gray-300 transition">
+            <Link href="#contact" className="hover:text-gray-300 transition">
               Contacto
             </Link>
           </li>
@@ -87,22 +87,22 @@ const Navbar: React.FC = () => {
         </button>
         <ul className="flex flex-col items-center justify-center h-full space-y-8 text-2xl font-semibold">
           <li>
-            <Link href="/home" onClick={closeMenu} className="hover:text-blue-500 transition">
+            <Link href="#inicio" onClick={closeMenu} className="hover:text-blue-500 transition">
               Inicio
             </Link>
           </li>
           <li>
-            <Link href="/about" onClick={closeMenu} className="hover:text-blue-500 transition">
-              Sobre Nosotros
+            <Link href="#cotizacion" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Cotizacion
             </Link>
           </li>
           <li>
-            <Link href="/services" onClick={closeMenu} className="hover:text-blue-500 transition">
-              Servicios
+            <Link href="#inflacion" onClick={closeMenu} className="hover:text-blue-500 transition">
+              Inflacion
             </Link>
           </li>
           <li>
-            <Link href="/contact" onClick={closeMenu} className="hover:text-blue-500 transition">
+            <Link href="#contact" onClick={closeMenu} className="hover:text-blue-500 transition">
               Contacto
             </Link>
           </li>
